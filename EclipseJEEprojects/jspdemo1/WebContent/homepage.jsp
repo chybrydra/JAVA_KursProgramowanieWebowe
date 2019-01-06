@@ -9,7 +9,7 @@
 
 <div id="container">
 	<jsp:include page="my-header.html" />	
-	<jsp:include page="my-content.html" />
+	<jsp:include page="my-content.jsp" />
 	<jsp:include page="my-footer.jsp" />	
 </div>
 
