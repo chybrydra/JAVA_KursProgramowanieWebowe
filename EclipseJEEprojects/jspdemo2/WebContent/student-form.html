@@ -2,29 +2,49 @@
 
 <head>
 <title>Student Registration Form</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
 <form action="student-response.jsp">
-	First name: <input type="text" name="firstName" />
-	<br/><br/>
-	Second name: <input type="text" name="lastName" />
-	<br/><br/>
-	<select name="country">
+	
+	<div class="textInput"> 
+		<input type="text" name="firstName" /> First Name
+	</div>
+	
+	<div class="textInput">
+	<input type="text" name="lastName" /> Second Name
+	</div>	
+	
+	<div>	
+	<select name="country">		
 		<option>Poland</option>
 		<option>Russia</option>
 		<option>Slovakia</option>
 		<option>Ukraine</option>
 	</select>
-	<br/><br/>
-	Favourite programming language:
-	<br/><br/>
-	<input type="radio" name="favLang" value="PHP" /> PHP
-	<input type="radio" name="favLang" value="JAVA" /> JAVA
-	<input type="radio" name="favLang" value="C++" /> C++
-	<input type="radio" name="favLang" value="Python" /> Python
-	<input type="radio" name="favLang" value="JavaScript" /> JavaScript
-	<br/><br/>
+	Country
+	</div>
+	
+	
+	<p class="formTitle">Favourite programming language:</p>	
+	<div>	
+	<label class="singleChoice"><input type="radio" name="favLang" value="PHP" /> PHP</label>
+	<label class="singleChoice"><input type="radio" name="favLang" value="JAVA" /> JAVA</label>
+	<label class="singleChoice"><input type="radio" name="favLang" value="C++" /> C++</label>
+	<label class="singleChoice"><input type="radio" name="favLang" value="Python" /> Python</label>
+	<label class="singleChoice"><input type="radio" name="favLang" value="JavaScript" /> JavaScript</label>
+	</div>
+	
+	<p class="formTitle">Known technologies: </p>
+	<div>	
+	<label class="multipleChoice"><input type="checkbox" name="knownTech" value="PHP" /> PHP</label>
+	<label class="multipleChoice"><input type="checkbox" name="knownTech" value="JAVA" /> JAVA</label>
+	<label class="multipleChoice"><input type="checkbox" name="knownTech" value="C++" /> C++</label>
+	<label class="multipleChoice"><input type="checkbox" name="knownTech" value="Python" /> Python</label>
+	<label class="multipleChoice"><input type="checkbox" name="knownTech" value="JavaScript" /> JavaScript</label>	
+	</div>
+	
 	<input type="submit" value="register!" />
 </form>
 

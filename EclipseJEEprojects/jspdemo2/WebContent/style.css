@@ -1,0 +1,40 @@
+body{
+	background-color: #212121;
+	color: #DAFFAD;
+	font-family: arial;
+	font-size: 18px;
+}
+
+select, input[type="text"]{
+	width: 150px;
+	height: 26px;
+	border-radius: 5px;
+	background-color: #CCDDCC;
+	font-size: 18px;
+}
+
+label{
+	display:block;
+}
+
+label:hover{
+	color: red;
+}
+
+input[type="submit"]{
+	background-color: #C9EE9C;
+	border-radius: 5px;
+	margin-top: 20px;
+	width: 150px;
+	height: 26px;
+	font-size: 18px;
+}
+
+.formTitle{
+	margin-bottom: 2px;
+}
+
+.textInput, select{
+	margin-top: 10px;
+	margin-bottom: 3px;
+}
