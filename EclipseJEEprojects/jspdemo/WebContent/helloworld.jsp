@@ -6,7 +6,10 @@
 
 <body>
 <h3>Hello world, Java app here!</h3>
-The time on the server is: <%= new java.util.Date() %>
+<p>The time on the server is: <%= new java.util.Date() %></p>
+
+
+
 </body>
 
 </html>
