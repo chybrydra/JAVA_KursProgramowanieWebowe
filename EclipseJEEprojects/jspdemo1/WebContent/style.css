@@ -1,0 +1,34 @@
+body{	
+	background-color:#101010; 
+	color: #DADD99;
+	font-family: arial;
+}
+
+#container{	
+	text-align: center;
+	background-color: #715233;
+	margin-top: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width:70%;
+}
+
+#header{	
+	font-size: 48px;
+}
+
+#footer{
+	font-size: 10px;
+}
+
+#content{
+	font-size: 18px;
+}
+
+#header, #footer{
+	background-color: #714223;	
+}
+
+#header, #footer, #content{
+	padding: 10px 0px;
+}
