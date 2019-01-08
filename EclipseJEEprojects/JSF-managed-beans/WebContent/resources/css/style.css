@@ -1,0 +1,9 @@
+body{
+	background-color: #153343;
+	color: #ACC;
+}
+
+input, select{
+	border-radius: 5px;
+	background-color: #CDD;
+}
