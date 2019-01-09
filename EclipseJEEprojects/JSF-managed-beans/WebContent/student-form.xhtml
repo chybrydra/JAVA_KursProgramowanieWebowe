@@ -11,27 +11,65 @@
 </h:head>
 
 <h:body>
-	<h:form>
-		First name: <h:inputText id="firstName" value="#{student.firstName}" />
-		<br/><br/>
-		Last  name: <h:inputText id="lastName" value="#{student.lastName}" />
-		<br/><br/>
-		Country:
-		<h:selectOneMenu value="#{student.country}">
-			<f:selectItem itemValue="Brazil" itemLabel="Brazil" />
-			<f:selectItem itemValue="Czech Republic" itemLabel="Czech Republic" />
-			<f:selectItem itemValue="France" itemLabel="France" />
-			<f:selectItem itemValue="Germany" itemLabel="Germany" />
-			<f:selectItem itemValue="Poland" itemLabel="Poland" />
-			<f:selectItem itemValue="Russia" itemLabel="Russia" />
-		</h:selectOneMenu>
-		<br/><br/>
-		<h:selectOneMenu value="#{student.age}">
-			<f:selectItems value="#{student.ageRangesList}" />
-		</h:selectOneMenu>
-		<br/><br/>
-		<h:commandButton value="Submit" action="student-response"/>
-	</h:form>
+<div id="container">
+	<h:form> 
+	
+		<div class="formSection">
+			<h:inputText id="firstName" value="#{student.firstName}" />
+			First Name
+		</div>
+		
+		<div class="formSection">		 
+			<h:inputText id="lastName" value="#{student.lastName}" />
+			Last Name
+		</div>
+		
+		<div class="formSection">
+			<h:selectOneMenu value="#{student.country}">
+				<f:selectItem itemValue="Brazil" itemLabel="Brazil" />
+				<f:selectItem itemValue="Czech Republic" itemLabel="Czech Republic" />
+				<f:selectItem itemValue="France" itemLabel="France" />
+				<f:selectItem itemValue="Germany" itemLabel="Germany" />
+				<f:selectItem itemValue="Poland" itemLabel="Poland" />
+				<f:selectItem itemValue="Russia" itemLabel="Russia" />
+			</h:selectOneMenu>
+			Country
+		</div>
+		
+		<div class="formSection">
+			<h:selectOneMenu value="#{student.age}">
+				<f:selectItems value="#{student.ageRangesList}" />
+			</h:selectOneMenu> 
+			Age
+		</div>
+		
+		<div class="formSection">
+			Favourite programming language:
+			<h:selectOneRadio value="#{student.favProgLang}">
+			   	<f:selectItem itemValue="PHP" itemLabel="PHP" />
+			   	<f:selectItem itemValue="C++" itemLabel="C++" />
+			   	<f:selectItem itemValue="Java" itemLabel="Java" />
+			   	<f:selectItem itemValue="Python" itemLabel="Python" />
+			   	<f:selectItem itemValue="JavaScript" itemLabel="JavaScript" />
+			</h:selectOneRadio>
+		</div>
+		
+		<div class="formSection">
+			Known programming language(s):
+			<h:selectManyCheckbox value="#{student.knownProgLang}">
+			   	<f:selectItem itemValue="PHP" itemLabel="PHP" />
+			   	<f:selectItem itemValue="Java" itemLabel="Java" />
+			   	<f:selectItem itemValue="JavaScript" itemLabel="JavaScript" />
+			   	<f:selectItem itemValue="Python" itemLabel="Python" />
+			   	<f:selectItem itemValue="C++" itemLabel="C++" />		   	
+			</h:selectManyCheckbox>		
+		</div>
+		
+		<div class="formSection">
+			<h:commandButton value="Submit" action="student-response"/>
+		</div>
+	</h:form>	
+</div>	
 </h:body>
 	
 	

@@ -10,10 +10,11 @@ public class Student {
 	private String lastName;
 	private String country;
 	private String age;
+	private String favProgLang; //favorite programming language
+	private String[] knownProgLang;
 	
 	//listOfAgeRanges for the second drop-down list
-	List<String> ageRangesList;
-	
+	List<String> ageRangesList;	
 	
 	public Student() {
 		ageRangesList = new ArrayList();
@@ -22,9 +23,24 @@ public class Student {
 		ageRangesList.add("21-24");
 		ageRangesList.add("25-29");
 		ageRangesList.add("30-39");
-		ageRangesList.add("40 or more");
-		
-	}	
+		ageRangesList.add("40 or more");		
+	}		
+	
+	public String[] getKnownProgLang() {
+		return knownProgLang;
+	}
+
+	public void setKnownProgLang(String[] knownProgLang) {
+		this.knownProgLang = knownProgLang;
+	}
+
+	public String getFavProgLang() {
+		return favProgLang;
+	}
+
+	public void setFavProgLang(String favProgLang) {
+		this.favProgLang = favProgLang;
+	}
 
 	public List<String> getAgeRangesList() {
 		return ageRangesList;
@@ -60,8 +76,5 @@ public class Student {
 
 	public void setCountry(String country) {
 		this.country = country;
-	}
-	
-	
-	
+	}	
 }

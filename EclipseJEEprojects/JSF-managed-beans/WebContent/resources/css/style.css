@@ -1,4 +1,5 @@
 body{
+	margin-top: 0px;
 	background-color: #153343;
 	color: #ACC;
 }
@@ -6,4 +7,57 @@ body{
 input, select{
 	border-radius: 5px;
 	background-color: #CDD;
+	display: inline-block;	
+}
+
+input[type="text"]{
+	width: 150px;
+}
+
+select{
+	width: 154px;
+}
+
+#container{
+	height: 100%;
+	padding: 2%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	background-color: #106060;
+}
+
+.formSection{
+	display: block;
+	margin-bottom: 25px;
+}
+
+.responseSection{
+	display: block;
+	width: 70%;
+	height: 50px;
+}
+
+p .formOptionHeader{
+	display: inline-block;
+	font-size: 20px;
+}
+
+a{
+	font-size: 20px;
+	margin-top: 50px;
+}
+
+a:link, a:visited {
+  color: #AAC;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  color: hotpink;
+  text-decoration: none;
+}
+
+ul{
+	display:block;
 }
