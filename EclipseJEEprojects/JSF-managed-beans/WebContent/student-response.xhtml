@@ -12,28 +12,27 @@
 <h:body>
 	<div id="container">
 		<div class="responseSection">
-			The student is confirmed: #{student.firstName} #{student.lastName}
+			The student is confirmed: #{student.firstName} #{student.lastName},
 		</div>
 		
 		<div class="responseSection">
-			Student comes from: #{student.country}
+			Student comes from: #{student.country},
 		</div>
 		
 		<div class="responseSection">
-			Student age is: #{student.age}
+			Student age is: #{student.age},
 		</div>
 		
 		<div class="responseSection">
-			Favourite pr. language: #{student.favProgLang}	
+			Favourite pr. language: #{student.favProgLang}	,
 		</div>
 		
 		<div class="responseSection">
 			Known pr. languages:
-			<ul>
 				<ui:repeat value="#{student.knownProgLang}" var="tempLang">
-					<li> #{tempLang} </li>
+					#{tempLang}, 
 				</ui:repeat>
-			</ul>			
+					
 		</div>
 		
 		<div class="responseSection">

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>pre-populating forms</title>
+	<h:outputStylesheet library="css" name="style.css"  />
+</h:head>
+
+<h:body>
+	<div id="container">
+		<h:form>
+			<div class="formSection">
+				First name: 
+				<h:inputText value="#{student.firstName}" />
+			</div>
+			
+			<div class="formSection">
+				Last name: 
+				<h:inputText value="#{student.lastName}" />
+			</div>
+			
+			<div class="formSection">
+				Favourite programming language:
+				<h:selectOneRadio value="#{student.favouriteLanguage}">
+					<f:selectItem  itemValue="JAVA" itemLabel="JAVA" />
+					<f:selectItem  itemValue="PHP" itemLabel="PHP" />
+					<f:selectItem  itemValue="JS" itemLabel="JS" />
+					<f:selectItem  itemValue="C++" itemLabel="C++" />
+				</h:selectOneRadio>
+			</div>
+			
+			<div class="formSection">
+				<h:commandButton value="Submit" action="student-response" />
+			</div>
+		</h:form>
+	</div>
+</h:body>
+
+
+</html>

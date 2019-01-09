@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Student one registration form</title>
+	<h:outputStylesheet library="css" name="style.css"  />
+</h:head>
+
+<h:body>
+	<div id="container">
+		<div class="responseSection">
+			Student confirmed: #{studentOne.firstName} #{studentOne.lastName}
+		</div>
+		<div class="responseSection">
+			Student's email: #{studentOne.email}
+		</div>		
+	</div>
+</h:body>
+
+</html>
