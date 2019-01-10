@@ -2,17 +2,14 @@ package pl.lukaszgrymulski;
 
 import java.sql.*;
 
-public class Driver {
+public class EmployeeViewer {
 
-	public static void main(String[] args) {
+	public static void viewEmployees() {
 		try {
-			// 1. Get a connection to DB
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc_demo?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
-			// 2. Create a statement
+			DBInfo db = new DBInfo();
+			Connection connection = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getPassword());
 			Statement statement = connection.createStatement();
-			// 3. Execute query
 			ResultSet myResultSet = statement.executeQuery("SELECT * FROM employees");
-			// 4. Process the result set
 			while(myResultSet.next()) {
 				System.out.printf("%d %-8s %-8s %-16s",
 								myResultSet.getInt("id"),
@@ -23,7 +20,7 @@ public class Driver {
 				System.out.println();
 			}
 			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
