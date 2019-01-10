@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ProductInserter {
-
+	
 	static void insertProduct(Product product) {			
 		try {
 			DBInfo db = new DBInfo();
