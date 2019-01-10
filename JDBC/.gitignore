@@ -1,3 +1,6 @@
 /.metadata/
 /.recommanders/
 /.recommenders/
+**/bin/
+**/.project
+**/.settings
