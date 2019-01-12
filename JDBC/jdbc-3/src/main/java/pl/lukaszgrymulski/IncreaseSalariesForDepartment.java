@@ -1,27 +1,13 @@
 package pl.lukaszgrymulski;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
-/* firsty I have to add stored procedure to MySQL using this:
-	DELIMITER //
-	CREATE PROCEDURE increase_salaries_for_department(IN the_department VARCHAR(64), IN increase_amount DECIMAL(10,2))
-	BEGIN
-	 UPDATE employees2 
-	 SET salary= salary + increase_amount 
-	 WHERE department=the_department;
-	END //
-	DELIMITER ;
-*/
-
-//stored procedure is a ready SQL statement, it's body is inside MySQL so I need to call it
+/** stored procedure IN - increase_salaries_for_department(?,?)*/
 
 public class IncreaseSalariesForDepartment {
 	
 	private static PreparedStatement statement;
+	private static CallableStatement callStatement;
 	private static ResultSet resultSet;
 	private static Connection connection;
 	
@@ -33,21 +19,22 @@ public class IncreaseSalariesForDepartment {
 			System.out.print("SALARIES BEFORE:\n\n");
 			showSalaries();
 			//prepare the stored procedure call
-			statement = connection.prepareCall("{call increase_salaries_for_department(?,?)}");
+			callStatement = connection.prepareCall("{call increase_salaries_for_department(?,?)}");
 			String theDepartment = "Engineering";
 			Double theIncreaseAmount = 10000.0;
-			statement.setString(1, theDepartment);
-			statement.setDouble(2, theIncreaseAmount);
+			callStatement.setString(1, theDepartment);
+			callStatement.setDouble(2, theIncreaseAmount);
 			//call stored procedure
 			System.out.println("Calling stored procedure: {call increase_salaries_for_department("+theDepartment+","+theIncreaseAmount+")");
-			statement.execute();
+			callStatement.execute();
 			System.out.println("Finished calling stored procedure");
 			//Show salaries after calling
 			System.out.print("SALARIES AFTER CALLING STORED PROCEDURE:\n\n");
 			showSalaries();
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}		
+		}
 	}
 	
 	static void showSalaries(){
