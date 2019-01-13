@@ -3,3 +3,6 @@
 **jdbc-1** - some basic statements in JDBC \
 **jdbc-2** - prepared statements\
 **jdbc-3** - stored procedures\
+**jdbc-4** - transactions\
+\
+all made in IntelliJ Community as Maven Project with a little help of luv2code YT channel
