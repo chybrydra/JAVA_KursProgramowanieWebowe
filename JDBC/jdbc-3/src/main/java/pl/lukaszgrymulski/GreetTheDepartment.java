@@ -2,6 +2,8 @@ package pl.lukaszgrymulski;
 
 import java.sql.*;
 
+/**INOUT stored procedure */
+
 public class GreetTheDepartment {
 
     private static CallableStatement statement;
@@ -11,15 +13,18 @@ public class GreetTheDepartment {
         try {
             DBInfo db = new DBInfo();
             connection = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getPassword());
+
             String theDepartment = "Engineering";
-            statement = connection.prepareCall("{call greet_the_department(?)}");
-            statement.registerOutParameter(1, Types.VARCHAR);
+            statement = connection.prepareCall("{call get_count_for_department(?,?)}");
             statement.setString(1, theDepartment);
-            System.out.println("Calling the stored procedure: greet_the_department(" + theDepartment + ")");
+            statement.registerOutParameter(2, Types.INTEGER);
+
+            System.out.println("Calling the stored procedure: get_count_for_department(" + theDepartment + ", ?)");
             statement.execute();
             System.out.println("Finished calling the stored procedure");
-            String theResult = statement.getString(1);
-            System.out.println("The result: " + theResult);
+
+            int theCount = statement.getInt(2);
+            System.out.println("\nThe count: "+ theCount + " people in the " + theDepartment + " department.");
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
