@@ -5,11 +5,6 @@ import java.sql.*;
 public class SchemaInfo {
 
     private static DatabaseMetaData dbmd;
-    private static String catalog = "jdbc_demo";
-    private static String schemaPattern;
-    private static String tableNamePattern = "employees";
-    private static String columnNamePattern;
-    private static String[] types;
     private static Connection connection;
     private static ResultSet resultSet;
 
