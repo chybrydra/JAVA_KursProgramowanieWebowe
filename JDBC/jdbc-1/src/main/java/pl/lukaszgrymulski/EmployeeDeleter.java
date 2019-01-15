@@ -17,6 +17,7 @@ public class EmployeeDeleter{
 			String query = "DELETE FROM employees WHERE " + whereValue;
 			int rowsAffected = statement.executeUpdate(query);		
 			System.out.println("rows affected: " + rowsAffected);
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}		

@@ -1,19 +1,16 @@
 package pl.lukaszgrymulski;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.sql.*;
 
-public class WriteBlob {
+public class WriteClob {
 
     private static Connection connection;
     private static PreparedStatement statement;
     private static Statement selectAllStatement;
-    private static FileInputStream input;
     private static ResultSet resultSet;
     private static ResultSetMetaData rsmd;
+    private static FileReader input;
 
     public static void main(String[] args) {
         try {
@@ -29,29 +26,28 @@ public class WriteBlob {
             }
             System.out.println("======================\n");
 
-            String sql = "UPDATE employees3 SET user_file=? WHERE id=1";
+            String sql = "UPDATE employees3 SET user_txtfile=? WHERE id=1";
             statement = connection.prepareStatement(sql);
-            File fileToSend = new File("src/main/resources/sampleFile.pdf");
-            input = new FileInputStream(fileToSend);
-            statement.setBinaryStream(1, input);
+            File fileToSend = new File("src/main/resources/sampleTextFile.txt");
+            input = new FileReader(fileToSend);
+            statement.setCharacterStream(1, input);
             System.out.println("Reading input file: " + fileToSend.getAbsolutePath());
-
             System.out.println("Storing file in DB: " + fileToSend);
             System.out.println("Query: " + sql);
             statement.executeUpdate();
             System.out.println("File send complete successfully!");
-
             try {
                 input.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             connection.close();
+
         } catch (SQLException e){
             System.out.println("Problem with MySQL!");
             e.printStackTrace();
         } catch (FileNotFoundException e) {
-            System.out.println("FILE NOT FOUND!!");
+            System.out.println("File not found!!");
             e.printStackTrace();
         }
     }

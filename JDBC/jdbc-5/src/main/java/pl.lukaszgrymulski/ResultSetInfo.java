@@ -33,6 +33,8 @@ public class ResultSetInfo {
 
             printResults(columnCount);
 
+            connection.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

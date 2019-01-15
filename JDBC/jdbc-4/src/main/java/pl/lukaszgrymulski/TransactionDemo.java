@@ -42,6 +42,8 @@ public class TransactionDemo {
             showSalaries("HR");
             showSalaries("Engineering");
 
+            connection.close();
+
         } catch (SQLException e) {
             System.out.println("Connection problemm, SQLState: " + e.getSQLState());
             e.printStackTrace();

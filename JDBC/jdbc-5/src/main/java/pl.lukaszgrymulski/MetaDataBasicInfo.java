@@ -28,6 +28,7 @@ public class MetaDataBasicInfo {
             System.out.println("Catalog Separator: " + dbmd.getCatalogSeparator());
             System.out.println("Schema Term:" + dbmd.getSchemaTerm());
 
+            connection.close();
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -20,6 +20,7 @@ public class EmployeeViewer {
 				);
 			}
 			System.out.println();
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

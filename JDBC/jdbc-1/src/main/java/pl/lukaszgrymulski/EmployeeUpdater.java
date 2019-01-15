@@ -16,6 +16,7 @@ public class EmployeeUpdater {
 			String query = "UPDATE employees SET "+update+" WHERE "+where;
 			statement.executeUpdate(query);		
 			System.out.println("UPDATE COMPLETE");
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}		

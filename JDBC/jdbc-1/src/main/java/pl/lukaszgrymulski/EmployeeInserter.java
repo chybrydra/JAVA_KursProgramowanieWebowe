@@ -21,6 +21,7 @@ public class EmployeeInserter {
 						+ "')";
 			statement.executeUpdate(query);
 			System.out.println("INSERT COMPLETE");
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

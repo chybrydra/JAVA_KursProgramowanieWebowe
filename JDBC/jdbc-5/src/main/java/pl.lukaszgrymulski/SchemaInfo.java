@@ -28,6 +28,8 @@ public class SchemaInfo {
                 System.out.println(resultSet.getString("COLUMN_NAME"));
             }
 
+            connection.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

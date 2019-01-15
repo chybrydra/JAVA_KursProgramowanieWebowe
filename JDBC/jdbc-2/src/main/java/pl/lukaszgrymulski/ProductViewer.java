@@ -42,14 +42,19 @@ public class ProductViewer {
 	
 	//MAIN METHOD
 	void viewProductsFiltered() {
-			connectToDataBase();
-			createStatement();
-			try {
-				resultSet = statement.executeQuery();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}			
-			printResultSet(resultSet);
+		connectToDataBase();
+		createStatement();
+		try {
+			resultSet = statement.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		printResultSet(resultSet);
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private void createStatement() {		

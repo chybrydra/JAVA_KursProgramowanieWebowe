@@ -18,6 +18,7 @@ public class ProductInserter {
 			statement.setDouble(2, product.getPrice());
 			statement.setString(3, product.getCategory());
 			statement.executeUpdate();
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}						
