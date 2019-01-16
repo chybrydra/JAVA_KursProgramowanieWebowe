@@ -6,5 +6,6 @@
 **jdbc-4** - transactions\
 **jdbc-5** - database meta data, result set meta data
 **jdbc-6** - BLOB, CLOB
+**jdbc-7** - JDBC + ancient Swing...
 \
 all made in IntelliJ Community as Maven Project with a little help of luv2code YT channel
