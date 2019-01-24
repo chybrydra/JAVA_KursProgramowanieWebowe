@@ -59,7 +59,7 @@ public class UserDAO {
         List<Users> allUsersList = new ArrayList<Users>();
         try {
             session.beginTransaction();
-            allUsersList = session.createQuery("FROM users WHERE first_name LIKE 'a%'" ).getResultList();
+            allUsersList = session.createQuery("FROM users WHERE first_name LIKE '"+letter+"%'" ).getResultList();
         } finally {
             session.close();
         }
