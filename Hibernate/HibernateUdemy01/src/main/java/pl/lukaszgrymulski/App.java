@@ -6,6 +6,9 @@ import org.hibernate.cfg.Configuration;
 import pl.lukaszgrymulski.dbaccess.UserDAO;
 import pl.lukaszgrymulski.entity.Users;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class App {
     public static void main(String[] args) {
 
@@ -16,16 +19,26 @@ public class App {
 
         UserDAO userDAO = new UserDAO(factory);
 
-        /** add new user */
-//        Users userToAdd = new Users("mag123", "kondor@wp.pl", "Janek", "Franczewski");
+//        /** add new user */
+//        Users userToAdd = new Users("kondor", "wrubel@oiseau.fr", "John", "Kole");
 //        userDAO.addUserToDB(userToAdd);
 
-        /** retrieve user by ID */
+//        /** retrieve user by ID */
 //        Users userFromDB = userDAO.retrieveUserByID(8);
 //        System.out.println(userFromDB);
 
-        /** update a user by id */
-        userDAO.updateUsername(1, "firstInRaw");
+//        /** update a user by id */
+//        userDAO.updateUsername(1, "firstInRaw");
+
+//        /** delete user */
+//        userDAO.removeUser(7);
+
+        /** get all users list using HQL */
+        List<Users> allUsers = new ArrayList<Users>();
+        allUsers = userDAO.retrieveAllUsers();
+        for (Users user : allUsers) {
+            System.out.println(user);
+        }
 
         factory.close();
     }

@@ -4,6 +4,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import pl.lukaszgrymulski.entity.Users;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserDAO {
 
     SessionFactory factory;
@@ -39,6 +42,19 @@ public class UserDAO {
         }
     }
 
+    public List<Users> retrieveAllUsers(){
+        Session session = factory.getCurrentSession();
+        List<Users> allUsersList = new ArrayList<Users>();
+        try {
+            session.beginTransaction();
+            allUsersList = session.createQuery("from users").getResultList();
+        } finally {
+            session.close();
+        }
+        return allUsersList;
+    }
+
+
     public void updateUsername(int id, String newUsername){
         Session session = factory.getCurrentSession();
         Users user = new Users();
@@ -47,6 +63,21 @@ public class UserDAO {
             user = session.get(Users.class, id);
             user.setUsername(newUsername);
             session.getTransaction().commit();
+            System.out.println("Username (id: " + id + ") changed to " + newUsername);
+        } finally {
+            session.close();
+        }
+    }
+
+    public void removeUser(int id){
+        Session session = factory.getCurrentSession();
+        Users user = new Users();
+        try{
+            session.beginTransaction();
+            user = session.get(Users.class, id);
+            session.delete(user);
+            session.getTransaction().commit();
+            System.out.println("User (id: " + id + ") deleted!");
         } finally {
             session.close();
         }

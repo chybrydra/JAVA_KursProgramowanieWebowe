@@ -1,6 +1,5 @@
 package pl.lukaszgrymulski.entity;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Getter @Setter
-@Entity
+@Entity(name="users")
 @Table(name="users")
 public class Users {
 
@@ -33,7 +32,7 @@ public class Users {
 
     @Override
     public String toString() {
-        return String.format("%-6d%-16s%-16s%-16s%-16s",
+        return String.format("%-6d%-30s%-20s%-20s%-20s",
                 this.userId,
                 this.username,
                 this.password,
