@@ -95,5 +95,26 @@ public class UserDAO {
         }
     }
 
+    public void updateUserPassword(int id, String password){
+        Session session = factory.getCurrentSession();
+        try {
+            session.beginTransaction();
+            session.createQuery("UPDATE users SET password='"+password+"' WHERE user_id='"+id+"'").executeUpdate();
+            System.out.println("Password for user (id: " + id + ") changed to: " + password);
+        } finally {
+            session.close();
+        }
+    }
+
+    public void deleteUserByUsername(String username){
+        Session session = factory.getCurrentSession();
+        try {
+            session.beginTransaction();
+            session.createQuery("DELETE FROM users WHERE username='"+username+"'").executeUpdate();
+
+        } finally {
+            session.close();
+        }
+    }
 
 }

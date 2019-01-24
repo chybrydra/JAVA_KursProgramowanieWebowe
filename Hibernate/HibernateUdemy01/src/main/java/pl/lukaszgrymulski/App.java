@@ -40,12 +40,16 @@ public class App {
 //            System.out.println(user);
 //        }
 
-        /** get all users list using HQL */
-        List<Users> allUsersByLetter = new ArrayList<Users>();
-        allUsersByLetter = userDAO.retrieveUsersByFirstLetter('a');
-        for (Users user : allUsersByLetter) {
-            System.out.println(user);
-        }
+//        /** get all users list using HQL */
+//        List<Users> allUsersByLetter = new ArrayList<Users>();
+//        allUsersByLetter = userDAO.retrieveUsersByFirstLetter('a');
+//        for (Users user : allUsersByLetter) {
+//            System.out.println(user);
+//        }
+
+//        userDAO.updateUserPassword(6, "laduradura");
+
+        userDAO.deleteUserByUsername("kondor");
 
         factory.close();
     }
