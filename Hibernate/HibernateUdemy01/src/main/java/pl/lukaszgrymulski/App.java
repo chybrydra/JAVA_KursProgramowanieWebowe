@@ -33,10 +33,17 @@ public class App {
 //        /** delete user */
 //        userDAO.removeUser(7);
 
+//        /** get all users list using HQL */
+//        List<Users> allUsers = new ArrayList<Users>();
+//        allUsers = userDAO.retrieveAllUsers();
+//        for (Users user : allUsers) {
+//            System.out.println(user);
+//        }
+
         /** get all users list using HQL */
-        List<Users> allUsers = new ArrayList<Users>();
-        allUsers = userDAO.retrieveAllUsers();
-        for (Users user : allUsers) {
+        List<Users> allUsersByLetter = new ArrayList<Users>();
+        allUsersByLetter = userDAO.retrieveUsersByFirstLetter('a');
+        for (Users user : allUsersByLetter) {
             System.out.println(user);
         }
 

@@ -54,6 +54,18 @@ public class UserDAO {
         return allUsersList;
     }
 
+    public List<Users> retrieveUsersByFirstLetter(char letter){
+        Session session = factory.getCurrentSession();
+        List<Users> allUsersList = new ArrayList<Users>();
+        try {
+            session.beginTransaction();
+            allUsersList = session.createQuery("FROM users WHERE first_name LIKE 'a%'" ).getResultList();
+        } finally {
+            session.close();
+        }
+        return allUsersList;
+    }
+
 
     public void updateUsername(int id, String newUsername){
         Session session = factory.getCurrentSession();
