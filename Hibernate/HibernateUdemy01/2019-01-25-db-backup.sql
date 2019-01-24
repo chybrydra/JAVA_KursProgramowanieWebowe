@@ -29,7 +29,7 @@ CREATE TABLE `users` (
   `first_name` varchar(45) DEFAULT NULL,
   `last_name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'firstInRaw','first@page.pl',NULL,NULL),(2,'Johnny','johnny@bravo.us',NULL,NULL),(3,'Anna','anna@wanna.pl',NULL,NULL),(4,'Mariano','mariano@italiano.it',NULL,NULL),(5,'Arni50','damnSon','Arnold','Weiseneger');
+INSERT INTO `users` VALUES (1,'firstInRaw','pierszy','Jan','Kowalski'),(2,'NewNickDude','drugilol','Adrian','Majdan'),(3,'Anna','annawannal','Kacper','Kacperski'),(4,'Mariano','love_pizza','Mariano','Bombardino'),(5,'Arni50','eatmyshit','Arnold','Weiseneger'),(6,'adamondra','piciaaaaa','Adam','Ondra'),(8,'mag123','kondor','Janek','Franczewski');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-24  2:33:33
+-- Dump completed on 2019-01-24 23:40:50
