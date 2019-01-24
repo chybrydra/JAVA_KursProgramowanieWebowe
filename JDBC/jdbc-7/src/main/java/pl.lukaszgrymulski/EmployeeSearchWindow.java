@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class EmployeeSearchApp {
+public class EmployeeSearchWindow {
     public JPanel panelMain;
     private JTextField lastNameTextField;
     private JPanel container;
@@ -16,18 +16,19 @@ public class EmployeeSearchApp {
     private JScrollPane tableArea;
     private JPanel textFieldBg;
     private EmployeeDAO employeeDAO;
+    private JFrame frame;
 
-    public void runApp() {
-        JFrame frame = new JFrame("EmployeeSearchApp example");
-        frame.setContentPane(new EmployeeSearchApp().panelMain);
+    public void runSearchWindow() {
+        JFrame frame = new JFrame("EmployeeSearchWindow");
+        frame.setContentPane(new EmployeeSearchWindow().panelMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
     }
 
-    public EmployeeSearchApp() {
+    public EmployeeSearchWindow() {
         searchButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent event) {
                 try {
                     employeeDAO = new EmployeeDAO();
                     String lastName = lastNameTextField.getText();
@@ -37,9 +38,6 @@ public class EmployeeSearchApp {
                     } else {
                         employees = employeeDAO.getAllEmployees();
                     }
-//                    for (Employee temp : employees) {
-//                        System.out.print(temp);
-//                    }
                     EmployeeTableModel model = new EmployeeTableModel(employees);
                     resultSetTable.setModel(model);
                 } catch (Exception f) {
@@ -50,8 +48,8 @@ public class EmployeeSearchApp {
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("EmployeeSearchApp example");
-        frame.setContentPane(new EmployeeSearchApp().panelMain);
+        JFrame frame = new JFrame("EmployeeSearchWindow example");
+        frame.setContentPane(new EmployeeSearchWindow().panelMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
