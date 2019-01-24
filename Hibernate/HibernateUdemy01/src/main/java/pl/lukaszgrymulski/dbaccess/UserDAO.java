@@ -39,5 +39,18 @@ public class UserDAO {
         }
     }
 
+    public void updateUsername(int id, String newUsername){
+        Session session = factory.getCurrentSession();
+        Users user = new Users();
+        try {
+            session.beginTransaction();
+            user = session.get(Users.class, id);
+            user.setUsername(newUsername);
+            session.getTransaction().commit();
+        } finally {
+            session.close();
+        }
+    }
+
 
 }
