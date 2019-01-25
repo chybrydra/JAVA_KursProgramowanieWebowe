@@ -2,6 +2,7 @@ package pl.lukaszgrymulski.app.ws.ui.controllers;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("users") // http://localhost:8080/users/
 public class UserController {
 	
-	@GetMapping //bind this method to HTTP request
-	public String getUser() {
-		return "get user was called";
+	@GetMapping(path="/{userId}") //bind this method to HTTP request
+	public String getUser(@PathVariable String userId) {
+		return "get user was called with userId = " + userId;
 	}
 	
 	@PostMapping //bind this method to HTTP request
