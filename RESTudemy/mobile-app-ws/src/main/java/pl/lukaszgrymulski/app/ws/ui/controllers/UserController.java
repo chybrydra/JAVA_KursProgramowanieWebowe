@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +16,17 @@ import pl.lukaszgrymulski.app.ws.exceptions.UserServiceException;
 import pl.lukaszgrymulski.app.ws.ui.model.request.UpdateUserDetailsRequestModel;
 import pl.lukaszgrymulski.app.ws.ui.model.request.UserDetailsRequestModel;
 import pl.lukaszgrymulski.app.ws.ui.model.response.UserRest;
+import pl.lukaszgrymulski.app.ws.userservice.UserService;
 
 @RestController
 @RequestMapping("users") // http://localhost:8080/users/
 public class UserController {
 	
 	Map <String, UserRest> users; //just to simulate DB without having one
+	
+	@Autowired
+	UserService userService;
+	
 	
 	@GetMapping //bind this method to HTTP request
 	public String getUsers(@RequestParam(value="page", defaultValue="1") int page, 
@@ -35,8 +41,7 @@ public class UserController {
 	@GetMapping(path="/{userId}", produces={MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE}) 
 	public ResponseEntity<UserRest> getUser(@PathVariable String userId) {
 		
-		if (true) throw new UserServiceException("A user service exception is thrown");
-		
+		//if (true) throw new UserServiceException("A user service exception is thrown");		
 		
 		if(users.containsKey(userId)) {
 			return new ResponseEntity<>(users.get(userId), HttpStatus.OK);
@@ -48,15 +53,7 @@ public class UserController {
 	@PostMapping(consumes = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE}, 
 				produces= {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<UserRest> createUser(@Valid @RequestBody UserDetailsRequestModel userDetails) {
-		UserRest returnValue = new UserRest();
-		returnValue.setEmail(userDetails.getEmail());
-		returnValue.setFirstName(userDetails.getFirstName());
-		returnValue.setLastName(userDetails.getLastName());		
-		//simulate DB
-		String userId = UUID.randomUUID().toString();
-		returnValue.setUserId(userId);
-		if (users == null) users = new HashMap<>();
-		users.put(userId, returnValue);		
+		UserRest returnValue = userService.createUser(userDetails); 
 		return new ResponseEntity<UserRest>(returnValue, HttpStatus.OK);
 	}
 	
